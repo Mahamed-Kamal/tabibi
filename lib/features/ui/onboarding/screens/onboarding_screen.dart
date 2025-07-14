@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tabibi/core/theming/styles.dart';
 import 'package:tabibi/features/ui/onboarding/widgets/doc_logo_and_name.dart';
-
 import '../widgets/doctor_image_and_text.dart';
 import '../widgets/get_started_button.dart';
 
@@ -34,6 +33,8 @@ class OnBoardingScreen extends StatelessWidget {
                       ),
                       SizedBox(height: 30.h),
                       const GetStartedButton(),
+                      //AppElevatedButton(text:'Get Started',onPressed:() => context.pushNamed(Routes.loginScreen)),
+
                     ],
                   ),
                 ),
