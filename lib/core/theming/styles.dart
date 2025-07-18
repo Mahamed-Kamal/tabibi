@@ -79,5 +79,12 @@ class TextStyles {
       fontWeight: FontWeightHelper.regular
     );
   }
+  static TextStyle font14BlueSemiBold() {
+    return TextStyle(
+        fontSize: 14.sp,
+        color: ColorsManager.mainBlue,
+        fontWeight: FontWeightHelper.semiBold,
+    );
+  }
 
 }
