@@ -10,9 +10,13 @@ class AppTextFormField extends StatelessWidget {
   final EdgeInsetsGeometry? contentPadding;
   final InputBorder? enabledBorder;
   final InputBorder? focusedBorder;
+  final InputBorder? errorBorder;
+  final InputBorder? focusedErrorBorder;
   final TextStyle? hintStyle;
   final bool? isObscureText;
   final Color? backgroundColor;
+  final TextEditingController? controller;
+  final Function(String?) validator;
 
   const AppTextFormField({
     required this.hintText,
@@ -24,11 +28,16 @@ class AppTextFormField extends StatelessWidget {
     this.hintStyle,
     this.isObscureText,
     this.backgroundColor,
+    this.controller,
+    required this.validator,
+    this.errorBorder,
+    this.focusedErrorBorder,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
       decoration: InputDecoration(
         isDense: true,
         contentPadding:
@@ -38,7 +47,7 @@ class AppTextFormField extends StatelessWidget {
             enabledBorder ??
             OutlineInputBorder(
               borderSide: const BorderSide(
-                color: ColorsManager.lighterGray,
+                color: ColorsManager.lighterBlue,
                 width: 1.5,
               ),
               borderRadius: BorderRadius.circular(16.r),
@@ -52,12 +61,27 @@ class AppTextFormField extends StatelessWidget {
               ),
               borderRadius: BorderRadius.circular(16.r),
             ),
+        errorBorder: errorBorder ?? OutlineInputBorder(
+          borderSide: const BorderSide(
+            color: Colors.red,
+            width: 1.5,
+          ),
+          borderRadius: BorderRadius.circular(16.r),
+        ),
+        focusedErrorBorder: focusedErrorBorder ?? OutlineInputBorder(
+          borderSide: const BorderSide(
+            color: Colors.red,
+            width: 1.5,
+          ),
+          borderRadius: BorderRadius.circular(16.r),
+        ),
         hintStyle: hintStyle ?? TextStyles.font14LightGrayMedium(),
         hintText: hintText,
         suffixIcon: suffixIcon,
         fillColor: backgroundColor ?? ColorsManager.moreLightGray,
         filled: true,
       ),
+      validator: (value) => validator(value),
       cursorColor: ColorsManager.mainBlue,
       style: TextStyles.font14DarkBlueMedium(),
       obscureText: isObscureText ?? false,
