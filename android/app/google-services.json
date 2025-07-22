@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "663435960347",
+    "project_id": "flutter-app-distribution-e0a52",
+    "storage_bucket": "flutter-app-distribution-e0a52.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:663435960347:android:6e295791085659c4e218be",
+        "android_client_info": {
+          "package_name": "com.example.tabibi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0EG7qcqAf52gMEL8OxlMd9EbjJhH36Og"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
