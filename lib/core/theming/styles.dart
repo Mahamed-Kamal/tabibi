@@ -86,5 +86,41 @@ class TextStyles {
         fontWeight: FontWeightHelper.semiBold,
     );
   }
+  static TextStyle font12DarkGrayRegular() {
+    return TextStyle(
+      fontSize: 12.sp,
+      color: ColorsManager.darkGray,
+      fontWeight: FontWeightHelper.regular,
+    );
+  }
+  static TextStyle font18DarBlueBold() {
+    return TextStyle(
+      fontSize: 18.sp,
+      color: ColorsManager.darkBlue,
+      fontWeight: FontWeightHelper.bold,
+    );
+  }
+  static TextStyle font18WhiteMedium() {
+    return TextStyle(
+      fontSize: 18.sp,
+      color: Colors.white,
+      fontWeight: FontWeightHelper.medium,
+    );
+  }
+  static TextStyle font18DarBlueSemiBold() {
+    return TextStyle(
+      fontSize: 18.sp,
+      color: ColorsManager.darkBlue,
+      fontWeight: FontWeightHelper.semiBold,
+    );
+  }
+  static TextStyle font16DarBlueBold() {
+    return TextStyle(
+      fontSize: 16.sp,
+      color: ColorsManager.darkBlue,
+      fontWeight: FontWeightHelper.bold,
+    );
+  }
+
 
 }

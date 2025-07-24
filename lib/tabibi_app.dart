@@ -4,9 +4,9 @@ import 'package:tabibi/core/routing/app_router.dart';
 import 'core/routing/routes.dart';
 import 'core/theming/colors_manager.dart';
 
-class DocApp extends StatelessWidget {
+class TabibiApp extends StatelessWidget {
   final AppRouter appRouter;
-  const DocApp({super.key, required this.appRouter});
+  const TabibiApp({super.key, required this.appRouter});
 
   @override
   Widget build(BuildContext context) {
@@ -15,10 +15,9 @@ class DocApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       child: MaterialApp(
-
         debugShowCheckedModeBanner: false,
         onGenerateRoute: appRouter.generatedRoute,
-        initialRoute: Routes.onBoarding,
+        initialRoute: Routes.homeScreen,
         theme:ThemeData(
           primaryColor: ColorsManager.mainBlue,
           scaffoldBackgroundColor: Colors.white,
