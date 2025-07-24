@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:tabibi/features/home/logic/home_cubit.dart';
-import 'package:tabibi/features/home/logic/home_state.dart';
 import '../widgets/doctor_blue_container.dart';
 import '../widgets/doctor_speciality_and_see_all.dart';
-import '../widgets/doctor_speciality_list_view.dart';
-import '../widgets/doctors_list_view.dart';
 import '../widgets/home_top_bar.dart';
 import '../widgets/specialization_and_doctors_bloc_builder.dart';
 
