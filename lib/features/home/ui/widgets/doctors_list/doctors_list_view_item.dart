@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import '../../../../core/images_manager.dart';
-import '../../../../core/theming/styles.dart';
-import '../../data/models/specialization_response_model.dart';
+import '../../../../../core/images_manager.dart';
+import '../../../../../core/theming/styles.dart';
+import '../../../data/models/specialization_response_model.dart';
 
 class DoctorsListViewItem extends StatelessWidget {
   final Doctors? doctorModel;

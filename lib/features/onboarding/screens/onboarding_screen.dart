@@ -27,7 +27,7 @@ class OnBoardingScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Text(
-                        "Manage and schedule all of your medical appointments easily with Docdoc to get a new experience.",
+                        "Manage and schedule all of your medical appointments easily with Tabibi to get a new experience.",
                         style: TextStyles.font14GrayRegular(),
                         textAlign: TextAlign.center,
                       ),
