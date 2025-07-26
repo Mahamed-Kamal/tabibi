@@ -1,5 +1,6 @@
 import 'package:tabibi/core/networking/api_result.dart';
 import 'package:tabibi/core/networking/api_service.dart';
+import 'package:tabibi/features/login/data/models/login_response.dart';
 import '../../../../core/networking/ap_error_handler.dart';
 import '../models/login_request_body.dart';
 
@@ -7,7 +8,7 @@ class LoginRepo {
   final ApiService _apiService;
   LoginRepo(this._apiService);
 
-  Future<ApiResult>login(LoginRequestBody loginRequestBody) async {
+  Future<ApiResult<LoginResponse>>login(LoginRequestBody loginRequestBody) async {
     try{
       final response = await _apiService.login(loginRequestBody);
       return ApiResult.success(response);

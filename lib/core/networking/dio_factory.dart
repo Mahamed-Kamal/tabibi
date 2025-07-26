@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
+import 'package:tabibi/core/helpers/shared_pref_keys.dart';
+import 'package:tabibi/core/helpers/shared_preferences_helper.dart';
 class DioFactory {
   /// private constructor as I don't want to allow creating an instance of this class
   DioFactory._();
@@ -19,11 +21,17 @@ class DioFactory {
       return dio!;
     }
   }
-  static void addDioHeaders() {
+  static void addDioHeaders() async  {
     dio?.options.headers = {
       'Accept':'application/json',
-      'Authorization':'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3ZjYXJlLmludGVncmF0aW9uMjUuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzUzMzE2NTE0LCJleHAiOjE3NTM0MDI5MTQsIm5iZiI6MTc1MzMxNjUxNCwianRpIjoiOWpINlg5Q3R6SHpTTnBsZCIsInN1YiI6IjQ0ODEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.1S_SI2Dqy9y8Rgzush0GemK0l08vTfs2GXEk4X0T9x8',
+      'Authorization':'Bearer ${await SharedPreferencesHelper.getSecuredString(SharedPrefKeys.userToken)}',
     };
+  }
+  static void setTokenAfterLogin(String token) async{
+    dio?.options.headers = {
+      'Accept':'application/json',
+      'Authorization':'Bearer $token ',
+  };
   }
 
   static void addDioInterceptor(){
