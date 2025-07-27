@@ -1,5 +1,4 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tabibi/core/networking/ap_error_handler.dart';
 import 'package:tabibi/core/networking/api_result.dart';
 import '../data/models/specialization_response_model.dart';
 import '../data/repository/home_repository.dart';
@@ -19,8 +18,8 @@ class HomeCubit extends Cubit<HomeState> {
         getDoctorsList(specializationId:specializationDataList?.first.id?? 1);
         emit(HomeState.specializationSuccess(specializationDataList));
       },
-      failure: (errorHandler) {
-        emit(HomeState.specializationError(error: errorHandler));
+      failure: (apiErrorModel) {
+        emit(HomeState.specializationError(apiErrorModel:apiErrorModel));
       },
     );
   }
@@ -29,7 +28,7 @@ class HomeCubit extends Cubit<HomeState> {
     if (doctors != null && doctors.isNotEmpty){
       emit(HomeState.doctorsSuccess(doctors));
     }else{
-      emit(HomeState.doctorsError(error: ErrorHandler.handle("Not Doctors Found ")));
+      emit(HomeState.doctorsError());
     }
 
   }

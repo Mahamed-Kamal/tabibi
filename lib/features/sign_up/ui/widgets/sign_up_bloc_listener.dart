@@ -4,6 +4,7 @@ import 'package:tabibi/core/helpers/extension.dart';
 import 'package:tabibi/core/routing/routes.dart';
 import 'package:tabibi/features/sign_up/logic/sign_up_cubit.dart';
 import 'package:tabibi/features/sign_up/logic/sign_up_state.dart';
+import '../../../../core/networking/api_error_model.dart';
 import '../../../../core/theming/colors_manager.dart';
 import '../../../../core/theming/styles.dart';
 
@@ -15,17 +16,17 @@ class SignUpBlocListener extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocListener<SignUpCubit,SignUpState>(
-        listenWhen: (previous, current) => current is Loading || current is Success ||current is  Error,
+        listenWhen: (previous, current) => current is SignUpLoading || current is SignUpSuccess ||current is SignUpError,
         listener: (context,state) {
           state.whenOrNull(
-              loading: () =>showDialog(
+              signUpLoading: () =>showDialog(
                 context: context,
                 builder: (context) => const Center(
                     child:CircularProgressIndicator(color: ColorsManager.mainBlue)
                 ),
               ),
-              error: (error) => setUpErrorState(context,error),
-              success: (data) {
+              signUpError: (apiErrorModel) => setUpErrorState(context,apiErrorModel),
+              signUpSuccess: (data) {
                 context.pop();
                 context.pushReplacementNamed(Routes.homeScreen);
               }
@@ -35,7 +36,7 @@ class SignUpBlocListener extends StatelessWidget {
     );
   }
 
-  void setUpErrorState (BuildContext context, String error) {
+  void setUpErrorState (BuildContext context, ApiErrorModel apiErrorModel) {
     context.pop();
     showDialog(
       context:context,
@@ -46,7 +47,7 @@ class SignUpBlocListener extends StatelessWidget {
           size: 32,
         ),
         content: Text(
-          error,
+          apiErrorModel.getAllErrorMessage(),
           style: TextStyles.font14DarkBlueMedium(),
         ),
         actions: [

@@ -1,7 +1,7 @@
 import 'package:tabibi/core/networking/api_result.dart';
 import 'package:tabibi/core/networking/api_service.dart';
 import 'package:tabibi/features/login/data/models/login_response.dart';
-import '../../../../core/networking/ap_error_handler.dart';
+import '../../../../core/networking/api_error_handler.dart';
 import '../models/login_request_body.dart';
 
 class LoginRepo {
@@ -14,8 +14,7 @@ class LoginRepo {
       return ApiResult.success(response);
 
     }catch(error){
-      //return ApiResult.failure(ErrorHandler.handle(error));
-      return ApiResult.failure(ErrorHandler.handle(error));
+      return ApiResult.failure(ApiErrorHandler.handle(error));
 
     }
   }

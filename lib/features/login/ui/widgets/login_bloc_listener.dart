@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tabibi/core/helpers/extension.dart';
+import 'package:tabibi/core/networking/api_error_model.dart';
 import 'package:tabibi/core/routing/routes.dart';
 import '../../../../core/theming/colors_manager.dart';
 import '../../../../core/theming/styles.dart';
@@ -14,17 +15,17 @@ class LoginBlocListener extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocListener<LoginCubit,LoginState>(
-      listenWhen: (previous, current) => current is Loading || current is Success ||current is  Error,
+      listenWhen: (previous, current) => current is LoginLoading || current is LoginSuccess ||current is LoginError,
         listener: (context,state) {
         state.whenOrNull(
-          loading: () =>showDialog(
+            loginLoading: () =>showDialog(
             context: context,
             builder: (context) => const Center(
                 child:CircularProgressIndicator(color: ColorsManager.mainBlue)
             ),
           ),
-          error: (error) => setUpErrorState(context,error),
-          success: (data) {
+            loginError: (error) => setUpErrorState(context,error),
+            loginSuccess: (data) {
             context.pop();
             context.pushReplacementNamed(Routes.homeScreen);
           }
@@ -34,7 +35,7 @@ class LoginBlocListener extends StatelessWidget {
     );
   }
 
-  void setUpErrorState (BuildContext context, String error) {
+  void setUpErrorState (BuildContext context, ApiErrorModel apiErrorModel) {
     context.pop();
     showDialog(
       context:context,
@@ -45,7 +46,7 @@ class LoginBlocListener extends StatelessWidget {
           size: 32,
         ),
         content: Text(
-          error,
+          apiErrorModel.getAllErrorMessage(),
           style: TextStyles.font14DarkBlueMedium(),
         ),
         actions: [

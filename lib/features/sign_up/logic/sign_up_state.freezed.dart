@@ -55,14 +55,14 @@ extension SignUpStatePatterns<T> on SignUpState<T> {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _Initial<T> value)?  initial,TResult Function( Loading<T> value)?  loading,TResult Function( Success<T> value)?  success,TResult Function( Error<T> value)?  error,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _Initial<T> value)?  initial,TResult Function( SignUpLoading<T> value)?  signUpLoading,TResult Function( SignUpSuccess<T> value)?  signUpSuccess,TResult Function( SignUpError<T> value)?  signUpError,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
-return initial(_that);case Loading() when loading != null:
-return loading(_that);case Success() when success != null:
-return success(_that);case Error() when error != null:
-return error(_that);case _:
+return initial(_that);case SignUpLoading() when signUpLoading != null:
+return signUpLoading(_that);case SignUpSuccess() when signUpSuccess != null:
+return signUpSuccess(_that);case SignUpError() when signUpError != null:
+return signUpError(_that);case _:
   return orElse();
 
 }
@@ -80,14 +80,14 @@ return error(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _Initial<T> value)  initial,required TResult Function( Loading<T> value)  loading,required TResult Function( Success<T> value)  success,required TResult Function( Error<T> value)  error,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _Initial<T> value)  initial,required TResult Function( SignUpLoading<T> value)  signUpLoading,required TResult Function( SignUpSuccess<T> value)  signUpSuccess,required TResult Function( SignUpError<T> value)  signUpError,}){
 final _that = this;
 switch (_that) {
 case _Initial():
-return initial(_that);case Loading():
-return loading(_that);case Success():
-return success(_that);case Error():
-return error(_that);case _:
+return initial(_that);case SignUpLoading():
+return signUpLoading(_that);case SignUpSuccess():
+return signUpSuccess(_that);case SignUpError():
+return signUpError(_that);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -104,14 +104,14 @@ return error(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _Initial<T> value)?  initial,TResult? Function( Loading<T> value)?  loading,TResult? Function( Success<T> value)?  success,TResult? Function( Error<T> value)?  error,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _Initial<T> value)?  initial,TResult? Function( SignUpLoading<T> value)?  signUpLoading,TResult? Function( SignUpSuccess<T> value)?  signUpSuccess,TResult? Function( SignUpError<T> value)?  signUpError,}){
 final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
-return initial(_that);case Loading() when loading != null:
-return loading(_that);case Success() when success != null:
-return success(_that);case Error() when error != null:
-return error(_that);case _:
+return initial(_that);case SignUpLoading() when signUpLoading != null:
+return signUpLoading(_that);case SignUpSuccess() when signUpSuccess != null:
+return signUpSuccess(_that);case SignUpError() when signUpError != null:
+return signUpError(_that);case _:
   return null;
 
 }
@@ -128,13 +128,13 @@ return error(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function()?  loading,TResult Function( T data)?  success,TResult Function( String message)?  error,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function()?  signUpLoading,TResult Function( T data)?  signUpSuccess,TResult Function( ApiErrorModel apiErrorModel)?  signUpError,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
-return initial();case Loading() when loading != null:
-return loading();case Success() when success != null:
-return success(_that.data);case Error() when error != null:
-return error(_that.message);case _:
+return initial();case SignUpLoading() when signUpLoading != null:
+return signUpLoading();case SignUpSuccess() when signUpSuccess != null:
+return signUpSuccess(_that.data);case SignUpError() when signUpError != null:
+return signUpError(_that.apiErrorModel);case _:
   return orElse();
 
 }
@@ -152,13 +152,13 @@ return error(_that.message);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function()  loading,required TResult Function( T data)  success,required TResult Function( String message)  error,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function()  signUpLoading,required TResult Function( T data)  signUpSuccess,required TResult Function( ApiErrorModel apiErrorModel)  signUpError,}) {final _that = this;
 switch (_that) {
 case _Initial():
-return initial();case Loading():
-return loading();case Success():
-return success(_that.data);case Error():
-return error(_that.message);case _:
+return initial();case SignUpLoading():
+return signUpLoading();case SignUpSuccess():
+return signUpSuccess(_that.data);case SignUpError():
+return signUpError(_that.apiErrorModel);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -175,13 +175,13 @@ return error(_that.message);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function()?  loading,TResult? Function( T data)?  success,TResult? Function( String message)?  error,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function()?  signUpLoading,TResult? Function( T data)?  signUpSuccess,TResult? Function( ApiErrorModel apiErrorModel)?  signUpError,}) {final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
-return initial();case Loading() when loading != null:
-return loading();case Success() when success != null:
-return success(_that.data);case Error() when error != null:
-return error(_that.message);case _:
+return initial();case SignUpLoading() when signUpLoading != null:
+return signUpLoading();case SignUpSuccess() when signUpSuccess != null:
+return signUpSuccess(_that.data);case SignUpError() when signUpError != null:
+return signUpError(_that.apiErrorModel);case _:
   return null;
 
 }
@@ -224,8 +224,8 @@ String toString() {
 /// @nodoc
 
 
-class Loading<T> implements SignUpState<T> {
-  const Loading();
+class SignUpLoading<T> implements SignUpState<T> {
+  const SignUpLoading();
   
 
 
@@ -235,7 +235,7 @@ class Loading<T> implements SignUpState<T> {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Loading<T>);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SignUpLoading<T>);
 }
 
 
@@ -244,7 +244,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'SignUpState<$T>.loading()';
+  return 'SignUpState<$T>.signUpLoading()';
 }
 
 
@@ -256,8 +256,8 @@ String toString() {
 /// @nodoc
 
 
-class Success<T> implements SignUpState<T> {
-  const Success(this.data);
+class SignUpSuccess<T> implements SignUpState<T> {
+  const SignUpSuccess(this.data);
   
 
  final  T data;
@@ -266,13 +266,13 @@ class Success<T> implements SignUpState<T> {
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$SuccessCopyWith<T, Success<T>> get copyWith => _$SuccessCopyWithImpl<T, Success<T>>(this, _$identity);
+$SignUpSuccessCopyWith<T, SignUpSuccess<T>> get copyWith => _$SignUpSuccessCopyWithImpl<T, SignUpSuccess<T>>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Success<T>&&const DeepCollectionEquality().equals(other.data, data));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SignUpSuccess<T>&&const DeepCollectionEquality().equals(other.data, data));
 }
 
 
@@ -281,15 +281,15 @@ int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(
 
 @override
 String toString() {
-  return 'SignUpState<$T>.success(data: $data)';
+  return 'SignUpState<$T>.signUpSuccess(data: $data)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $SuccessCopyWith<T,$Res> implements $SignUpStateCopyWith<T, $Res> {
-  factory $SuccessCopyWith(Success<T> value, $Res Function(Success<T>) _then) = _$SuccessCopyWithImpl;
+abstract mixin class $SignUpSuccessCopyWith<T,$Res> implements $SignUpStateCopyWith<T, $Res> {
+  factory $SignUpSuccessCopyWith(SignUpSuccess<T> value, $Res Function(SignUpSuccess<T>) _then) = _$SignUpSuccessCopyWithImpl;
 @useResult
 $Res call({
  T data
@@ -300,17 +300,17 @@ $Res call({
 
 }
 /// @nodoc
-class _$SuccessCopyWithImpl<T,$Res>
-    implements $SuccessCopyWith<T, $Res> {
-  _$SuccessCopyWithImpl(this._self, this._then);
+class _$SignUpSuccessCopyWithImpl<T,$Res>
+    implements $SignUpSuccessCopyWith<T, $Res> {
+  _$SignUpSuccessCopyWithImpl(this._self, this._then);
 
-  final Success<T> _self;
-  final $Res Function(Success<T>) _then;
+  final SignUpSuccess<T> _self;
+  final $Res Function(SignUpSuccess<T>) _then;
 
 /// Create a copy of SignUpState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? data = freezed,}) {
-  return _then(Success<T>(
+  return _then(SignUpSuccess<T>(
 freezed == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
 as T,
   ));
@@ -322,43 +322,43 @@ as T,
 /// @nodoc
 
 
-class Error<T> implements SignUpState<T> {
-  const Error({required this.message});
+class SignUpError<T> implements SignUpState<T> {
+  const SignUpError(this.apiErrorModel);
   
 
- final  String message;
+ final  ApiErrorModel apiErrorModel;
 
 /// Create a copy of SignUpState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$ErrorCopyWith<T, Error<T>> get copyWith => _$ErrorCopyWithImpl<T, Error<T>>(this, _$identity);
+$SignUpErrorCopyWith<T, SignUpError<T>> get copyWith => _$SignUpErrorCopyWithImpl<T, SignUpError<T>>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Error<T>&&(identical(other.message, message) || other.message == message));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SignUpError<T>&&(identical(other.apiErrorModel, apiErrorModel) || other.apiErrorModel == apiErrorModel));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,message);
+int get hashCode => Object.hash(runtimeType,apiErrorModel);
 
 @override
 String toString() {
-  return 'SignUpState<$T>.error(message: $message)';
+  return 'SignUpState<$T>.signUpError(apiErrorModel: $apiErrorModel)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $ErrorCopyWith<T,$Res> implements $SignUpStateCopyWith<T, $Res> {
-  factory $ErrorCopyWith(Error<T> value, $Res Function(Error<T>) _then) = _$ErrorCopyWithImpl;
+abstract mixin class $SignUpErrorCopyWith<T,$Res> implements $SignUpStateCopyWith<T, $Res> {
+  factory $SignUpErrorCopyWith(SignUpError<T> value, $Res Function(SignUpError<T>) _then) = _$SignUpErrorCopyWithImpl;
 @useResult
 $Res call({
- String message
+ ApiErrorModel apiErrorModel
 });
 
 
@@ -366,19 +366,19 @@ $Res call({
 
 }
 /// @nodoc
-class _$ErrorCopyWithImpl<T,$Res>
-    implements $ErrorCopyWith<T, $Res> {
-  _$ErrorCopyWithImpl(this._self, this._then);
+class _$SignUpErrorCopyWithImpl<T,$Res>
+    implements $SignUpErrorCopyWith<T, $Res> {
+  _$SignUpErrorCopyWithImpl(this._self, this._then);
 
-  final Error<T> _self;
-  final $Res Function(Error<T>) _then;
+  final SignUpError<T> _self;
+  final $Res Function(SignUpError<T>) _then;
 
 /// Create a copy of SignUpState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? message = null,}) {
-  return _then(Error<T>(
-message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
-as String,
+@pragma('vm:prefer-inline') $Res call({Object? apiErrorModel = null,}) {
+  return _then(SignUpError<T>(
+null == apiErrorModel ? _self.apiErrorModel : apiErrorModel // ignore: cast_nullable_to_non_nullable
+as ApiErrorModel,
   ));
 }
 

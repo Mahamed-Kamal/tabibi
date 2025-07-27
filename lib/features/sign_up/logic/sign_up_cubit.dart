@@ -18,7 +18,7 @@ class SignUpCubit extends Cubit<SignUpState> {
   final formKey = GlobalKey<FormState>();
 
   void emitSignUpState () async {
-    emit(SignUpState.loading());
+    emit(SignUpState.signUpLoading());
     var response =await _signUpRepository.signUp(
       SignUpRequestBody(
           name: nameController.text,
@@ -31,10 +31,10 @@ class SignUpCubit extends Cubit<SignUpState> {
     );
     response.when(
         success:(data) {
-          emit(SignUpState.success(data));
+          emit(SignUpState.signUpSuccess(data));
         } ,
-        failure: (error){
-          emit(SignUpState.error(message:error.apiErrorModel.message ?? '' ));
+        failure: (apiErrorModel){
+          emit(SignUpState.signUpError(apiErrorModel));
         },
     );
   }

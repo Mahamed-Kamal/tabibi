@@ -17,7 +17,7 @@ class LoginCubit extends Cubit<LoginState> {
   LoginCubit(this._loginRepo) : super(const LoginState.initial());
 
   void emitLoginState() async {
-    emit(LoginState.loading());
+    emit(LoginState.loginLoading());
     var response = await _loginRepo.login(LoginRequestBody(
         email: emailController.text,
         password: passwordController.text,
@@ -25,10 +25,10 @@ class LoginCubit extends Cubit<LoginState> {
     response.when(
       success: (loginResponseBody) async {
         await setUserToken(loginResponseBody.data?.token??"");
-        emit(LoginState.success(loginResponseBody));
+        emit(LoginState.loginSuccess(loginResponseBody));
       },
-      failure: (error) {
-        emit(LoginState.error(error: error.apiErrorModel.message ?? ""));
+      failure: (apiErrorModel) {
+        emit(LoginState.loginError(apiErrorModel));
       },
     );
   }

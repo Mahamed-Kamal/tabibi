@@ -18,7 +18,7 @@ class TabibiApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         onGenerateRoute: appRouter.generatedRoute,
-        initialRoute: isLoggedInUser? Routes.homeScreen :Routes.loginScreen,
+        initialRoute: isLoggedInUser? Routes.homeScreen :Routes.onBoarding,
         theme:ThemeData(
           primaryColor: ColorsManager.mainBlue,
           scaffoldBackgroundColor: Colors.white,
