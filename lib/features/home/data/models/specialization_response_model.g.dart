@@ -15,14 +15,7 @@ SpecializationResponseModel _$SpecializationResponseModelFromJson(
   code: (json['code'] as num?)?.toInt(),
 );
 
-Map<String, dynamic> _$SpecializationResponseModelToJson(
-  SpecializationResponseModel instance,
-) => <String, dynamic>{
-  'message': instance.message,
-  'data': instance.data,
-  'status': instance.status,
-  'code': instance.code,
-};
+
 
 Data _$DataFromJson(Map<String, dynamic> json) => Data(
   id: (json['id'] as num?)?.toInt(),
@@ -30,11 +23,7 @@ Data _$DataFromJson(Map<String, dynamic> json) => Data(
   doctors: (json['doctors'] as List<dynamic>?)?.map(Doctors.fromJson).toList(),
 );
 
-Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{
-  'id': instance.id,
-  'name': instance.name,
-  'doctors': instance.doctors,
-};
+
 
 Doctors _$DoctorsFromJson(Map<String, dynamic> json) => Doctors(
   id: (json['id'] as num?)?.toInt(),
@@ -47,13 +36,3 @@ Doctors _$DoctorsFromJson(Map<String, dynamic> json) => Doctors(
   appointPrice: (json['appointPrice'] as num?)?.toInt(),
 );
 
-Map<String, dynamic> _$DoctorsToJson(Doctors instance) => <String, dynamic>{
-  'id': instance.id,
-  'name': instance.name,
-  'email': instance.email,
-  'phone': instance.phone,
-  'photo': instance.photo,
-  'gender': instance.gender,
-  'degree': instance.degree,
-  'appointPrice': instance.appointPrice,
-};

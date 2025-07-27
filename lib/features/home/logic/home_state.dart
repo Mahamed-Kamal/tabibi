@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:tabibi/core/networking/api_error_handler.dart';
 import 'package:tabibi/core/networking/api_error_model.dart';
 import 'package:tabibi/features/home/data/models/specialization_response_model.dart';
 part 'home_state.freezed.dart';
