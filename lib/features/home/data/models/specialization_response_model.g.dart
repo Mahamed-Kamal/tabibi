@@ -16,6 +16,7 @@ SpecializationResponseModel _$SpecializationResponseModelFromJson(
 );
 
 
+
 Data _$DataFromJson(Map<String, dynamic> json) => Data(
   id: (json['id'] as num?)?.toInt(),
   name: json['name'] as String?,

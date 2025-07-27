@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tabibi/features/sign_up/logic/sign_up_cubit.dart';
 import 'package:tabibi/features/sign_up/ui/widgets/sign_up_bloc_listener.dart';
-
 import '../../../../core/theming/styles.dart';
 import '../../../../core/widgets/app_text_button.dart';
 import '../../../login/ui/widgets/terms_and_conditions_text.dart';
